@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1>AI Explainer</h1>
+      </div>
+      <button class="settings-btn" id="settingsBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+          <path d="M19.4 15A1.65 1.65 0 0 0 19.73 16.81L19.79 16.87A2 2 0 0 1 19.79 19.7A2 2 0 0 1 16.96 19.7L16.9 19.64A1.65 1.65 0 0 0 15.09 19.31A1.65 1.65 0 0 0 14.09 20.82V21A2 2 0 0 1 12.09 23A2 2 0 0 1 10.09 21V20.91A1.65 1.65 0 0 0 9 19.4A1.65 1.65 0 0 0 7.19 19.73L7.13 19.79A2 2 0 0 1 4.3 19.79A2 2 0 0 1 4.3 16.96L4.36 16.9A1.65 1.65 0 0 0 4.69 15.09A1.65 1.65 0 0 0 3.18 14.09H3A2 2 0 0 1 1 12.09A2 2 0 0 1 3 10.09H3.09A1.65 1.65 0 0 0 4.6 9A1.65 1.65 0 0 0 4.27 7.19L4.21 7.13A2 2 0 0 1 4.21 4.3A2 2 0 0 1 7.04 4.3L7.1 4.36A1.65 1.65 0 0 0 8.91 4.69H9A1.65 1.65 0 0 0 10 3.18V3A2 2 0 0 1 12 1A2 2 0 0 1 14 3V3.09A1.65 1.65 0 0 0 15 4.6A1.65 1.65 0 0 0 16.81 4.27L16.87 4.21A2 2 0 0 1 19.7 4.21A2 2 0 0 1 19.7 7.04L19.64 7.1A1.65 1.65 0 0 0 19.31 8.91V9A1.65 1.65 0 0 0 20.82 10H21A2 2 0 0 1 23 12A2 2 0 0 1 21 14H20.91A1.65 1.65 0 0 0 19.4 15Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Settings View -->
+    <div class="settings-view hidden" id="settingsView">
+      <h2>Settings</h2>
+      <label>Gemini API Key</label>
+      <input type="password" id="apiKeyInput" placeholder="Enter your API key...">
+      <p class="hint">Get your API key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></p>
+      <button class="btn-primary" id="saveSettingsBtn">Save</button>
+    </div>
+
+    <!-- Main View -->
+    <div class="main-view" id="mainView">
+      <!-- Action Buttons -->
+      <div class="actions">
+        <button class="action-btn" data-mode="summary">
+          <span class="icon">📝</span>
+          <span>Summarize</span>
+        </button>
+        <button class="action-btn" data-mode="explain">
+          <span class="icon">💡</span>
+          <span>Explain</span>
+        </button>
+        <button class="action-btn" data-mode="simple">
+          <span class="icon">🎯</span>
+          <span>Simplify</span>
+        </button>
+        <button class="action-btn" data-mode="key">
+          <span class="icon">🔑</span>
+          <span>Key Points</span>
+        </button>
+      </div>
+
+      <!-- Custom Question -->
+      <div class="custom-section">
+        <input type="text" id="customQuestion" placeholder="Ask anything about this page...">
+        <button class="btn-send" id="askBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Result Area -->
+      <div class="result-area" id="resultArea">
+        <div class="welcome">
+          <div class="welcome-icon">✨</div>
+          <p>Click a button above or ask a question to get AI-powered insights about this page.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="popup.js"></script>
+</html>
